@@ -39,6 +39,7 @@ class BroadcastMessage(Resource):
         text_query = 'broadcast '+message
         response_text, response_html = assistant.assist(text_query=text_query)
         logging.debug(response_text)
+        logging.debug(response_html)
         return {'status': 'OK'}
 
 api.add_resource(BroadcastMessage, '/broadcast_message')
@@ -48,6 +49,7 @@ class Command(Resource):
         message = request.args.get('message', default = 'This is a test!')
         response_text, response_html = assistant.assist(text_query=message)
         logging.debug(response_text)
+        logging.debug(response_html)
         return {'status': 'OK'}
 
 api.add_resource(Command, '/command')
